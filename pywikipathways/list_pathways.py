@@ -1,4 +1,5 @@
-from .utilities import *
+import requests
+import pandas
 
 def list_pathways(organism=""):
     """List Pathways
@@ -33,6 +34,7 @@ def list_pathways(organism=""):
     # Fetch JSON data from the URL
     url = "https://www.wikipathways.org/json/listPathways.json"
     response = requests.get(url)
+    response.raise_for_status()
     data = response.json()
     
     # Extract pathways from each organism
@@ -68,18 +70,18 @@ def list_pathway_ids(organism=""):
         
     Examples:
         >>> list_pathway_ids('Mus musculus')
-        0        WP1
-        1       WP10
-        2      WP103
-        3      WP108
-        4      WP113
-               ...  
-        230     WP79
-        231     WP85
-        232     WP87
-        233     WP88
-        234     WP93
-        Name: id, Length: 235, dtype: object
+        0      WP3673
+        1      WP4627
+        2       WP396
+        3       WP175
+        4       WP447
+                ...  
+        200    WP2904
+        201    WP2375
+        202    WP3979
+        203     WP350
+        204    WP2902
+        Name: id, Length: 205, dtype: object
     """
     res = list_pathways(organism)
     return res['id']
@@ -97,19 +99,19 @@ def list_pathway_names(organism=""):
         pandas.Series: A series of names.
         
     Examples:
-        >>> list_pathway_ids('Mus musculus')
-        0      WP3673
-        1      WP4627
-        2       WP396
-        3       WP175
-        4       WP447
-                ...
-        200    WP2904
-        201    WP2375
-        202    WP3979
-        203     WP350
-        204    WP2902
-        Name: id, Length: 205, dtype: object
+        >>> list_pathway_names('Mus musculus')
+        0                         Hfe effect on hepcidin production
+        1          Lipids measured in liver metastasis from breast...
+        2                                     ACE inhibitor pathway
+        3                                   Acetylcholine synthesis
+        4                                        Adipogenesis genes
+                                ...                                
+        200          miR302-367 promoting cardiomyocyte proliferation
+        201                     miRNAs and TFs in iPS Cell Generation
+        202               mir-193a and MVP in colon cancer metastasis
+        203                                p38 Mapk signaling pathway
+        204                                             p53 signaling
+        Name: name, Length: 205, dtype: object
     """
     res = list_pathways(organism)
     return res['name']
