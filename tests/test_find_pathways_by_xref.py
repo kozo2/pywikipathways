@@ -1,5 +1,4 @@
-import pytest
-from pywikipathways.find_pathways_by_xref import *
+from pywikipathways.find_pathways_by_xref import find_pathways_by_xref
 
 def test_find_pathways_by_xref():
     # find by Xref

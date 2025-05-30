@@ -1,7 +1,8 @@
+import pywikipathways
+
 project = 'pywikipathways'
 copyright = '2021, Kozo Nishida'
 author = 'Kozo Nishida'
-import pywikipathways
 version = pywikipathways.__version__
 release = version
 

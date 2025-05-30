@@ -1,4 +1,5 @@
-from .utilities import *
+import pandas
+from .utilities import wikipathways_get
 
 def find_pathways_by_text(query):
     res = wikipathways_get('findPathwaysByText', {'query': query, 'format': 'json'})

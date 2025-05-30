@@ -3,7 +3,7 @@ import sys
 import requests
 import pandas
 
-from .list_organisms import *
+from .list_organisms import list_organisms
 
 def download_pathway_archive(date='current', organism=None, format='gpml', destpath='./'):
     """Download Pathway Archive
@@ -32,7 +32,7 @@ def download_pathway_archive(date='current', organism=None, format='gpml', destp
         >>> download_pathway_archive(organism="Mus musculus")  # download file
     """
     # get validated format
-    if not format in ['gpml', 'gmt', 'svg']:
+    if format not in ['gpml', 'gmt', 'svg']:
         sys.exit(format + " is not in ['gpml', 'gmt', 'svg']. Please specify one of these.")
     
     # validate date
@@ -43,7 +43,7 @@ def download_pathway_archive(date='current', organism=None, format='gpml', destp
     # validate organism
     orgs = list_organisms()
     if organism:
-        if not organism in orgs:
+        if organism not in orgs:
             sys.exit('The organism must match the list of supported organisms, see list_organisms()')
     
     # download specific file, or...

@@ -1,5 +1,4 @@
-import pytest
-from pywikipathways.find_pathway_by_text import *
+from pywikipathways.find_pathway_by_text import find_pathways_by_text
 
 def test_find_pathways_by_text():
     # Test with a query that should return at least one pathway
