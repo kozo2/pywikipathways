@@ -29,9 +29,13 @@ classifiers = [
 dependencies = [
   "requests",
   "pandas",
-  "lxml"
+  "lxml",
+  "ruff>=0.11.12",
 ]
 
 [project.urls]
 Homepage = "https://github.com/wikipathways/pywikipathways"
 Issues = "https://github.com/wikipathways/pywikipathways/issues"
+
+[tool.ruff]
+exclude = ["*.ipynb"]

@@ -1,4 +1,5 @@
-from .utilities import *
+import pandas
+from .utilities import wikipathways_get
 
 def get_curation_tags(pathway):
     res = wikipathways_get('getCurationTags', {'pwId': pathway, 'format': 'json'})

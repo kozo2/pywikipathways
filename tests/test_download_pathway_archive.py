@@ -1,5 +1,4 @@
-import pytest
-from pywikipathways.download_pathway_archive import *
+from pywikipathways.download_pathway_archive import download_pathway_archive
 
 def test_successful_download():
     filename = download_pathway_archive(date='current', organism='Mus musculus', format='gpml')

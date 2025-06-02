@@ -1,4 +1,5 @@
-from .utilities import *
+import pandas
+from .utilities import wikipathways_get
 
 def find_pathways_by_xref(identifier, system_code):
     res = wikipathways_get('findPathwaysByXref', {'ids': identifier, 'codes': system_code, 'format': 'json'})

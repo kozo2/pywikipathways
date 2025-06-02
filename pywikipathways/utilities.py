@@ -1,5 +1,4 @@
 import requests
-import pandas
 import urllib.parse
 
 DEFAULT_BASE_URL = 'https://webservice.wikipathways.org'
@@ -27,7 +26,7 @@ def wikipathways_get(operation, parameters=None, base_url=DEFAULT_BASE_URL):
         r.raise_for_status()
         try:
             return r.json()
-        except ValueError as e:
+        except ValueError:
             return r.text
     except requests.exceptions.RequestException as e:
         print("Error: ", e)

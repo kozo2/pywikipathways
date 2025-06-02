@@ -10,7 +10,13 @@ def list_organisms():
 
     Example:
         >>> list_organisms()
+        ['Arabidopsis thaliana', 'Hordeum vulgare', 'Bacillus subtilis', ...]
     """
-    res = requests.get("https://www.wikipathways.org/json/listOrganisms.json")
-    res.raise_for_status()
-    return res.json()['organisms']
+    # Fetch data from JSON API endpoint
+    url = "https://www.wikipathways.org/json/listOrganisms.json"
+    response = requests.get(url)
+    response.raise_for_status()
+    
+    # Extract and return the list of organisms
+    data = response.json()
+    return data['organisms']
