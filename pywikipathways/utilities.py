@@ -37,3 +37,19 @@ def build_url(base_url=DEFAULT_BASE_URL, operation=None):
         return base_url + "/" + urllib.parse.quote(operation)
     else:
         return base_url
+
+def wikipathways_api():
+    """WikiPathways API
+
+    Opens the WikiPathways Swagger API documentation in a web browser.
+
+    Note:
+        This function is provided for compatibility with older web services
+        and may be deprecated in future releases.
+
+    Examples:
+        >>> wikipathways_api()
+    """
+    import webbrowser
+    url = "https://webservice.wikipathways.org/ui"
+    webbrowser.open(url)

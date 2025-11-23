@@ -16,4 +16,8 @@ from .get_xref_list import *
 from .list_communities import *
 from .list_organisms import *
 from .list_pathways import *
+from .read_gmt import *
+from .read_pathway_gmt import *
+from .write_gmt import *
+from .utilities import wikipathways_api
 from ._version import __version__
